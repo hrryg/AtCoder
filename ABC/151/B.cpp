@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-  int N,K,M,i,test=-1,A,sum=0;
+  int N,K,M,i,test,A,sum=0;
   cin >> N >> K >> M;
 
 
@@ -11,11 +11,12 @@ int main(){
     sum += A;
   }
 
-  for(i=0;i<K;i++){
-    if((sum+i)/N>=M){
-      test = i;
-      break;
-    }
-  }
+  test = N*M-sum;
+
+  if(test<=0)
+  cout << "0" << endl;
+  else if(test>K)
+  cout << "-1" << endl;
+  else
   cout << test << endl;
 }
