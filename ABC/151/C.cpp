@@ -2,13 +2,12 @@
 using namespace std;
 
 int main(){
-  int N,M,i,ACcnt=0,WAcnt=0;
+  int N,M,i,p,ACcnt=0,WAcnt=0;
+  string S;
   cin >> N >> M;
   map<int,pair<string,int>> AtCoder;
 
   for(i=0;i<M;i++){
-    int p;
-    string S;
     cin >> p >> S;
     if(AtCoder.count(p)){
       if(AtCoder.at(p).first=="WA"){
@@ -16,14 +15,14 @@ int main(){
           ACcnt++;
           AtCoder[p].first = "AC";
           WAcnt += AtCoder[p].second;
-        }else if(S=="WA")
+        }else
         AtCoder[p].second++;
       }
     }else{
       if(S=="WA"){
         AtCoder[p].first = "WA";
         AtCoder[p].second = 1;
-      }else if(S=="AC"){
+      }else {
         ACcnt++;
         AtCoder[p].first = "AC";
       }
